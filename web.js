@@ -1,19 +1,15 @@
 var express = require('express');
 var app = express();
-var buf;
-var len = 0;
 var fs = require('fs');
 
 app.use(express.logger());
 
 app.get('/', function(request, response) {
-  fs.readFile('./index.html', function(err, data) {
-     if(err) {
-         throw err;
-      }
-    buf = data;
-    console.log(data); 
-  }   
+//  fs.readFile('./index.html', function(err, data) {
+//     if(err) {
+//         throw err;
+//      }
+//  }   
   response.send('Hello World from index.html');
 });
 
