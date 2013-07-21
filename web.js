@@ -11,11 +11,10 @@ app.get('/', function(request, response) {
      if(err) {
          throw err;
       }
-      console.log(data); 
-      buf = new Buffer(30);
-      len = buf.write(data, 0);
+    buf = data;
+    console.log(data); 
   }   
-  response.send(buf.toString('utf-8',0,len));
+  response.send(buf));
 });
 
 var port = process.env.PORT || 5000;
