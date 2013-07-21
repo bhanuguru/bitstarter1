@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var buf;
+var len = 0;
 var fs = require('fs');
 
 app.use(express.logger());
@@ -11,9 +12,10 @@ app.get('/', function(request, response) {
          throw err;
       }
       console.log(data); 
-      buf = new Buffer(data, "utf-8");        
+      buf = new Buffer(30);
+      len = buf.write(data, 0);
   }   
-  response.send(buf.toString('utf-8'));
+  response.send(buf.toString('utf-8',0,len));
 });
 
 var port = process.env.PORT || 5000;
