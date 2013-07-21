@@ -14,7 +14,7 @@ app.get('/', function(request, response) {
     buf = data;
     console.log(data); 
   }   
-  response.send("Hello World from index.html");
+  response.send('Hello World from index.html');
 });
 
 var port = process.env.PORT || 5000;
