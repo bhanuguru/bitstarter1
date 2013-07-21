@@ -5,11 +5,7 @@ var fs = require('fs');
 app.use(express.logger());
 
 app.get('/', function(request, response) {
-  fs.readFile('./index.html', function(err, data) {
-     if(err) {
-         throw err;
-      }
-  }   
+  var data = fs.readFileSync('index.html', 'utf8');
   response.send(data);
 });
 
